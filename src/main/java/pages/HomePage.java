@@ -29,4 +29,3 @@ public class HomePage {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(.,'Mohamed El Asal')]")));
     }
 }
-s
