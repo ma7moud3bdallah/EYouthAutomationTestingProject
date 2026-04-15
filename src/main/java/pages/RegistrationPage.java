@@ -3,11 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +12,9 @@ public class RegistrationPage {
     private WebDriver driver;
     private By nameField = By.id("name");
     private By emailField = By.id("email");
-    private By countryMenu =
-    private By governmentMenu =
-    private By genderMenu =
+    private By countryMenu = By.xpath("//div[@class='grid grid-cols-2 gap-4']/div[1]/button/following-sibling::select");
+    private By governmentMenu = By.xpath("//div[@class='grid grid-cols-2 gap-4']/div[2]/button/following-sibling::select");
+    private By genderMenu = By.xpath("//form/div[4]//select");
     private By phoneField = By.id("phone");
     private By passwordField1 = By.id("password");
     private By passwordField2 = By.id("confirm_password");

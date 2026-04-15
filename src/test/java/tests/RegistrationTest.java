@@ -12,7 +12,7 @@ public class RegistrationTest extends BaseTest {
         registrationPage.setUsername("");
         registrationPage.setEmail("mahmoooud117@gmail.com");
         registrationPage.selectCountry("مصر");
-        registrationPage.getSelectedCountry().get(0);
+        registrationPage.getSelectedCountry();
         registrationPage.selectGovernment("القاهرة");
         registrationPage.getSelectedGovernment();
         registrationPage.selectGender("ذكر");

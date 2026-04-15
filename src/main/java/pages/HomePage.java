@@ -61,7 +61,7 @@ public class HomePage {
         return new RegistrationPage(driver);
     }
     public RegistrationPage registerPage(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(registerButton));
         driver.findElement(registerButton).click();
         return new RegistrationPage(driver);
