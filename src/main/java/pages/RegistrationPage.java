@@ -3,8 +3,11 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +16,15 @@ public class RegistrationPage {
     private WebDriver driver;
     private By nameField = By.id("name");
     private By emailField = By.id("email");
-    private By countryMenu = By.xpath("//div[@class='grid grid-cols-2 gap-4']//button[@aria-controls='radix-_r_4qf_']");
-    private By governmentMenu = By.xpath("//div[@class='grid grid-cols-2 gap-4']//button[@aria-controls='radix-_r_4qg_']");
-    private By genderMenu = By.xpath("//button[@aria-controls='radix-_r_4qh_']");
+    private By countryMenu =
+    private By governmentMenu =
+    private By genderMenu =
     private By phoneField = By.id("phone");
     private By passwordField1 = By.id("password");
     private By passwordField2 = By.id("confirm_password");
     private By acceptTerms = By.id("terms");
     private By createAccountButton = By.xpath("//button[@type='submit']");
-
+    private By nameErrorMessage = By.xpath("//p[@class='ms-1 mt-1.5 w-full text-sm text-[red]']");
 
     // Constructor
     public RegistrationPage(WebDriver driver){
@@ -30,10 +33,15 @@ public class RegistrationPage {
 
     //Methods
     public void setUsername(String username){
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         driver.findElement(nameField).sendKeys(username);
     }
     public void setEmail(String email){
-        driver.findElement(nameField).sendKeys(email);
+        driver.findElement(emailField).sendKeys(email);
     }
     public void selectCountry(String option1){
         Select select = new Select(driver.findElement(countryMenu));
@@ -62,7 +70,7 @@ public class RegistrationPage {
         return selectedOptions;
     }
     public void selectGender(String option3){
-        Select select = new Select(driver.findElement(governmentMenu));
+        Select select = new Select(driver.findElement(genderMenu));
         select.selectByVisibleText(option3);
     }
     public List<String> getSelectedGender(){
@@ -88,5 +96,8 @@ public class RegistrationPage {
     }
     public void createAccount(){
         driver.findElement(createAccountButton).click();
+    }
+    public String errorMessage(){
+        return driver.findElement(nameErrorMessage).getText();
     }
 }
