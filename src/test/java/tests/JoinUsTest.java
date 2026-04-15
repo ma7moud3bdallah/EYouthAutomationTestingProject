@@ -8,6 +8,6 @@ public class JoinUsTest extends BaseTest {
     @Test
     public void testJoinUs(){
         homePage.joinUs();
-        Assert.assertTrue(driver.getCurrentUrl().contains("instructor"),"Registration process is incorrect");
+        Assert.assertTrue(driver.getCurrentUrl().contains("/signup"),"Registration process is incorrect");
     }
 }
