@@ -18,6 +18,7 @@ public class HomePage {
     private By coursesButton = By.cssSelector("div[class='relative'] > button");
     private By marketingCourses = By.xpath("//div[@class='mt-2 ml-9 space-y-2']/a [1]");
     private By joinUsButton = By.xpath("//a[contains(text(),'أنضم')]");
+    private By registerButton = By.xpath("//a[@class='relative ms-0']/following-sibling::a[2]");
 
     // Constructor
     public HomePage(WebDriver driver){
@@ -56,6 +57,10 @@ public class HomePage {
         }
         driver.findElement(joinUsButton).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='text-secondary']/following-sibling::a")));
+        return new RegistrationPage(driver);
+    }
+    public RegistrationPage registerPage(){
+        driver.findElement(registerButton).click();
         return new RegistrationPage(driver);
     }
 }
