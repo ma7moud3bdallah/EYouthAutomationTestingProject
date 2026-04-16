@@ -93,10 +93,10 @@ public class RegistrationPage {
     }
     public void createAccount(){
         driver.findElement(createAccountButton).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(nameErrorMessage));
     }
     public String errorMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(nameErrorMessage));
         return driver.findElement(nameErrorMessage).getText();
     }
 }
