@@ -59,13 +59,13 @@ public class HomePage {
         return new RegistrationPage(driver);
     }
     public RegistrationPage registerPage(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(registerButton));
         driver.findElement(registerButton).click();
         return new RegistrationPage(driver);
     }
     public LoginPage loginPage(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
         driver.findElement(loginButton).click();
         return new LoginPage(driver);
