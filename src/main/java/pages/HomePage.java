@@ -3,10 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class HomePage {
@@ -19,7 +17,7 @@ public class HomePage {
     private By marketingCourses = By.xpath("//div[@class='mt-2 ml-9 space-y-2']/a [1]");
     private By joinUsButton = By.xpath("//a[contains(text(),'أنضم')]");
     private By registerButton = By.xpath("//a[@class='relative ms-0']/following-sibling::a[2]");
-    private By nameErrorMessage = By.xpath("//p[@class='ms-1 mt-1.5 w-full text-sm text-[red]']");
+    private By loginButton = By.xpath("//a[@class='relative ms-0']/following-sibling::a[1]");
 
     // Constructor
     public HomePage(WebDriver driver){
@@ -65,5 +63,11 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(registerButton));
         driver.findElement(registerButton).click();
         return new RegistrationPage(driver);
+    }
+    public LoginPage loginPage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
+        driver.findElement(loginButton).click();
+        return new LoginPage(driver);
     }
 }

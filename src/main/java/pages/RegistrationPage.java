@@ -3,7 +3,11 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +33,8 @@ public class RegistrationPage {
 
     //Methods
     public void setUsername(String username){
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
         driver.findElement(nameField).sendKeys(username);
     }
     public void setEmail(String email){
@@ -92,6 +93,8 @@ public class RegistrationPage {
     }
     public void createAccount(){
         driver.findElement(createAccountButton).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(nameErrorMessage));
     }
     public String errorMessage(){
         return driver.findElement(nameErrorMessage).getText();
