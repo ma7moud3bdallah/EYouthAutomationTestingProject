@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 import pages.CourseCardPage;
 import pages.MarketingCoursesPage;
 
-import java.time.Duration;
-
 public class courseDetailsTest extends BaseTest {
     @Test
     public void testCourseDetails(){

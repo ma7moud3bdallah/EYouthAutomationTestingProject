@@ -18,6 +18,7 @@ public class HomePage {
     private By joinUsButton = By.xpath("//a[contains(text(),'أنضم')]");
     private By registerButton = By.xpath("//a[@class='relative ms-0']/following-sibling::a[2]");
     private By loginButton = By.xpath("//a[@class='relative ms-0']/following-sibling::a[1]");
+    private By trainingCourses = By.xpath("//a[text()='الدورات التدريبية']");
 
     // Constructor
     public HomePage(WebDriver driver){
@@ -69,5 +70,11 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
         driver.findElement(loginButton).click();
         return new LoginPage(driver);
+    }
+    public TrainingCoursesPage trainingCourses(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(trainingCourses));
+        driver.findElement(trainingCourses).click();
+        return new TrainingCoursesPage(driver);
     }
 }
