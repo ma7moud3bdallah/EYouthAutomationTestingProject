@@ -21,6 +21,11 @@ public class CourseDetailsPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='flex grow items-stretch gap-6']/button")));
         driver.findElement(courseCard).click();
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return new CourseCardPage(driver);
     }
 }
