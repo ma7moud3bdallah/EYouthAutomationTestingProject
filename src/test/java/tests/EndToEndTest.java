@@ -10,7 +10,7 @@ public class EndToEndTest extends BaseTest {
     public void testScenario(){
         LoginPage loginPage = homePage.loginPage();
         loginPage.setEmail("Mahmoud-Abdallah@shakeregypt.com");
-        loginPage.setPassword("eV666666@scg");
+        loginPage.setPassword("mahmoud123@SCG");
         LoggedInHomePage loggedInHomePage = loginPage.successfulLogin();
         try {
             Thread.sleep(5000);
