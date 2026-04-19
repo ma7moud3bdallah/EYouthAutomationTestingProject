@@ -18,7 +18,11 @@ public class HomePage {
     private By joinUsButton = By.xpath("//a[contains(text(),'أنضم')]");
     private By registerButton = By.xpath("//a[@class='relative ms-0']/following-sibling::a[2]");
     private By loginButton = By.xpath("//a[@class='relative ms-0']/following-sibling::a[1]");
-    private By trainingCourses = By.xpath("//a[text()='الدورات التدريبية']");
+    private By socialLinks = By.cssSelector("div[class='flex justify-center gap-3']");
+    private By facebookIcon = By.xpath("//div[@class='flex justify-center gap-3']/a[1]");
+    private By twitterIcon = By.xpath("//div[@class='flex justify-center gap-3']/a[1]");
+    private By linkedinIcon = By.xpath("//div[@class='flex justify-center gap-3']/a[1]");
+    private By instagramIcon = By.xpath("//div[@class='flex justify-center gap-3']/a[1]");
 
     // Constructor
     public HomePage(WebDriver driver){
@@ -70,5 +74,35 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
         driver.findElement(loginButton).click();
         return new LoginPage(driver);
+    }
+    public void clickFacebookIcon(){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(facebookIcon));
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].scrollIntoView({block:'center'});",driver.findElement(socialLinks));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        driver.findElement(facebookIcon).click();
+        for(String handle:driver.getWindowHandles()){
+            driver.switchTo().window(handle);
+        }
+    }
+    public void clickLinkedinIcon(){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(linkedinIcon));
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].scrollIntoView({block:'center'});",driver.findElement(socialLinks));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        driver.findElement(linkedinIcon).click();
+        for(String handle:driver.getWindowHandles()){
+            driver.switchTo().window(handle);
+        }
     }
 }

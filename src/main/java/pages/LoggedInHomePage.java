@@ -19,7 +19,7 @@ public class LoggedInHomePage {
 
     // Methods
     public DataScienceCoursesPage clickSubscribeNow(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(subscribeNowButton));
         driver.findElement(subscribeNowButton).click();
         return new DataScienceCoursesPage(driver);

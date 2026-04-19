@@ -19,7 +19,7 @@ public class DataScienceCoursesPage {
 
     // Methods
     public CartPage clickSubscribeButton(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(subscribeButton));
         driver.findElement(subscribeButton).click();
         return new CartPage(driver);
