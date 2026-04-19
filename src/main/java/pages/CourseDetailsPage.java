@@ -6,13 +6,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class MarketingCoursesPage {
+public class CourseDetailsPage {
     // Fields
     private WebDriver driver;
     private By courseCard = By.xpath("//section [1] / div [1]");
 
     // Constructor
-    public MarketingCoursesPage(WebDriver driver){
+    public CourseDetailsPage(WebDriver driver){
         this.driver = driver;
     }
 

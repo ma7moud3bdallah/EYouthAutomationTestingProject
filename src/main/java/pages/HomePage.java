@@ -38,7 +38,7 @@ public class HomePage {
         driver.findElement(searchAction).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(.,'Mohamed El Asal')]")));
     }
-    public MarketingCoursesPage courseDetails(){
+    public CourseDetailsPage courseDetails(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(sideMenu));
         driver.findElement(sideMenu).click();
@@ -46,7 +46,7 @@ public class HomePage {
         driver.findElement(coursesButton).click();
         wait.until(ExpectedConditions.elementToBeClickable(marketingCourses));
         driver.findElement(marketingCourses).click();
-        return new MarketingCoursesPage(driver);
+        return new CourseDetailsPage(driver);
     }
     public RegistrationPage joinUs(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
