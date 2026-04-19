@@ -13,7 +13,7 @@ public class BaseTest {
 
     // Methods
     @BeforeMethod
-    public void setup(){
+    public void goHome(){
         driver = new ChromeDriver();
         driver.get("https://eyouthlearning.com/ar");
         homePage = new HomePage(driver);
