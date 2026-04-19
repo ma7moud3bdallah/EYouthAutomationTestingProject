@@ -34,6 +34,10 @@ public class LoginPage {
     public void login(){
         driver.findElement(submitButton).click();
     }
+    public LoggedInHomePage successfulLogin(){
+        driver.findElement(submitButton).click();
+        return new LoggedInHomePage(driver);
+    }
     public String getErrorMessage(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage));

@@ -71,10 +71,4 @@ public class HomePage {
         driver.findElement(loginButton).click();
         return new LoginPage(driver);
     }
-    public TrainingCoursesPage trainingCourses(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.elementToBeClickable(trainingCourses));
-        driver.findElement(trainingCourses).click();
-        return new TrainingCoursesPage(driver);
-    }
 }

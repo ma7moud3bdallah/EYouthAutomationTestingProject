@@ -3,15 +3,22 @@ package tests;
 import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CartPage;
-import pages.TrainingCoursesPage;
+import pages.*;
 
 public class EndToEndTest extends BaseTest {
     @Test
     public void testScenario(){
-
-        TrainingCoursesPage trainingCoursesPage = homePage.trainingCourses();
-        CartPage cartPage = trainingCoursesPage.subscribeToCourse();
+        LoginPage loginPage = homePage.loginPage();
+        loginPage.setEmail("Mahmoud-Abdallah@shakeregypt.com");
+        loginPage.setPassword("eV666666@scg");
+        LoggedInHomePage loggedInHomePage = loginPage.successfulLogin();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        DataScienceCoursesPage dataScienceCoursesPage = loggedInHomePage.clickSubscribeNow();
+        CartPage cartPage = dataScienceCoursesPage.clickSubscribeButton();
         Assert.assertEquals(cartPage.getCartItems().size(),1,"Course was not added to the cart correctly");
     }
 }
